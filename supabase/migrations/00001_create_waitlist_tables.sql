@@ -65,12 +65,21 @@ ALTER TABLE parent_waitlist ENABLE ROW LEVEL SECURITY;
 ALTER TABLE expert_waitlist ENABLE ROW LEVEL SECURITY;
 ALTER TABLE partnership_inquiries ENABLE ROW LEVEL SECURITY;
 
--- RLS Policies: Allow public inserts, admin reads
+-- RLS Policies: Allow public inserts, authenticated reads
 CREATE POLICY "public_insert_parent_waitlist" ON parent_waitlist
   FOR INSERT WITH CHECK (true);
+
+CREATE POLICY "authenticated_read_parent_waitlist" ON parent_waitlist
+  FOR SELECT USING (auth.role() = 'authenticated');
 
 CREATE POLICY "public_insert_expert_waitlist" ON expert_waitlist
   FOR INSERT WITH CHECK (true);
 
+CREATE POLICY "authenticated_read_expert_waitlist" ON expert_waitlist
+  FOR SELECT USING (auth.role() = 'authenticated');
+
 CREATE POLICY "public_insert_partnership" ON partnership_inquiries
   FOR INSERT WITH CHECK (true);
+
+CREATE POLICY "authenticated_read_partnership" ON partnership_inquiries
+  FOR SELECT USING (auth.role() = 'authenticated');
