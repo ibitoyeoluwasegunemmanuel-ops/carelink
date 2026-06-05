@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FiMessageCircle, FiUsers, FiTrendingUp } from 'react-icons/fi';
+import { FiMessageCircle, FiUsers } from 'react-icons/fi';
 
 export default function ForumsPage() {
   const forums = [
