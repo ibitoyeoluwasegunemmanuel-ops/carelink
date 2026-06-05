@@ -30,14 +30,27 @@ const SignupPage = () => {
     }
 
     try {
-      // TODO: Implement Supabase signup
-      console.log({
+      const { createClient } = await import('@/lib/supabase')
+      const supabase = createClient()
+
+      const { data, error: signupError } = await supabase.auth.signUp({
         email,
         password,
-        userType
+        options: {
+          data: { user_type: userType }
+        }
       })
-    } catch (err) {
-      setError('Signup failed. Please try again.')
+
+      if (signupError) throw signupError
+
+      if (data.user) {
+        setError('Account created! Check your email to verify.')
+        setEmail('')
+        setPassword('')
+        setConfirmPassword('')
+      }
+    } catch (err: any) {
+      setError(err.message || 'Signup failed. Please try again.')
     } finally {
       setIsLoading(false)
     }
