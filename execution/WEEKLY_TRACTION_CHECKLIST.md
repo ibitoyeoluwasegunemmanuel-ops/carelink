@@ -42,22 +42,31 @@
 
 ---
 
-## Week 3 - Expert Recruitment Launch
+## Week 3 - Launch: Expert Recruitment + Parent Growth
 
 ### Targets
 ```
 Experts Contacted: [0/50]
 Expert Conversations: [0/10]
 Applications Received: [0/5]
-Parent Waitlist Signups: [0/0]
+Experts Verified: [0/5]
+Parent Waitlist Signups: [0/25]
+NGO Conversations: [0/2]
 ```
 
-### Actions
+### Actions (Expert Recruitment)
 - [ ] Send 50 expert recruitment emails (personalized)
 - [ ] Make 20 follow-up calls
 - [ ] Conduct 10 discovery conversations
 - [ ] Receive 5 applications
 - [ ] Start verification on first 5
+
+### Actions (Parent & NGO Growth)
+- [ ] Share /waitlist on social media (LinkedIn, Facebook, WhatsApp)
+- [ ] Send parent outreach emails to 50 contacts (if available)
+- [ ] Contact 2 NGOs for partnership discussions
+- [ ] Target: 25 parents sign up for early access
+- [ ] Target: 2 NGO conversations scheduled
 
 ### Daily (Every Day)
 - [ ] Check form submissions (admin dashboard)
@@ -81,7 +90,8 @@ Parent Waitlist Signups: [0/0]
 Cumulative Expert Applications: [#/60]
 Cumulative Expert Conversations: [#/20]
 Experts Verified: [#/10]
-Parent Waitlist: [#/10]
+Parent Waitlist: [#/50]
+NGO Conversations: [#/5]
 Partnership Meetings: [#/3]
 Content: Articles 1-20 drafted
 ```
