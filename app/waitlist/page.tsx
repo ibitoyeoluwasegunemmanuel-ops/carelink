@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import ParentWaitlistForm from '@/components/waitlist/ParentWaitlistForm';
 import ExpertWaitlistForm from '@/components/waitlist/ExpertWaitlistForm';
 import PartnershipInquiryForm from '@/components/waitlist/PartnershipInquiryForm';
-import { FiCheckCircle, FiUsers, FiBook, FiTrendingUp, FiMessageCircle, FiHeart, FiAward } from 'react-icons/fi';
+import { FiCheckCircle, FiUsers, FiBook, FiMessageCircle, FiHeart, FiAward } from 'react-icons/fi';
 
 export const metadata: Metadata = {
   title: 'CareLink Africa - Trusted Expert Support for Special Needs Families',
