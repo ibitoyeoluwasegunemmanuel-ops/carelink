@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { FiArrowRight } from 'react-icons/fi'
 
 const LoginPage = () => {
@@ -9,6 +10,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
+  const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -16,10 +18,21 @@ const LoginPage = () => {
     setError('')
 
     try {
-      // TODO: Implement Supabase login
-      console.log({ email, password })
-    } catch (err) {
-      setError('Login failed. Please check your credentials.')
+      const { createClient } = await import('@/lib/supabase')
+      const supabase = createClient()
+
+      const { data, error: loginError } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      })
+
+      if (loginError) throw loginError
+
+      if (data.user) {
+        router.push('/dashboard')
+      }
+    } catch (err: any) {
+      setError(err.message || 'Login failed. Please check your credentials.')
     } finally {
       setIsLoading(false)
     }

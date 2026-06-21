@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { FiSearch, FiSliders, FiMapPin, FiStar, FiCheck } from 'react-icons/fi'
+import { FiSearch, FiMapPin, FiStar, FiCheck } from 'react-icons/fi'
 import Link from 'next/link'
 
 const ExpertsPage = () => {

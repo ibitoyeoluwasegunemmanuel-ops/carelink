@@ -40,3 +40,5 @@ Thumbs.db
 # IDEs specific files
 *.sublime-project
 *.sublime-workspace
+next-env.d.ts
+package-lock.json
