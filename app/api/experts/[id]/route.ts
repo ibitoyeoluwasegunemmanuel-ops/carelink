@@ -7,7 +7,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 // GET /api/experts/[id] - Get expert profile by ID
 export async function GET(
-  request: NextRequest,
+  _request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
