@@ -1,9 +1,16 @@
 import { createClient } from '@supabase/supabase-js';
 import { NextRequest, NextResponse } from 'next/server';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-const supabase = createClient(supabaseUrl, supabaseKey);
+function getSupabaseClient() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!supabaseUrl || !supabaseKey) {
+    throw new Error('Missing Supabase environment variables');
+  }
+
+  return createClient(supabaseUrl, supabaseKey);
+}
 
 // POST /api/appointments - Create appointment booking
 export async function POST(request: NextRequest) {
@@ -32,6 +39,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const supabase = getSupabaseClient();
     // Get parent profile
     const { data: parent, error: parentError } = await supabase
       .from('parent_profiles')
@@ -131,6 +139,7 @@ export async function GET(request: NextRequest) {
     const userType = request.headers.get('x-user-type');
     const status = request.nextUrl.searchParams.get('status');
 
+    const supabase = getSupabaseClient();
     let query = supabase
       .from('appointments')
       .select(`
